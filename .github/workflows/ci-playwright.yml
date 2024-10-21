@@ -5,22 +5,22 @@
     build:
       runs-on: ubuntu-latest
 
-      services:
-        xvfb:
-          image: selenium/standalone-chrome:latest
-          ports:
-            - 4444:4444
-          options: >-
-            --shm-size 2g
-            --health-cmd "curl -sS http://localhost:4444/wd/hub/status || exit 1"
-            --health-timeout 5s
+      # services:
+      #   xvfb:
+      #     image: selenium/standalone-chrome:latest
+      #     ports:
+      #       - 4444:4444
+      #     options: >-
+      #       --shm-size 2g
+      #       --health-cmd "curl -sS http://localhost:4444/wd/hub/status || exit 1"
+      #       --health-timeout 5s
 
       steps:
         - name: Checkout repo
-          uses: actions/checkout@main
+          uses: actions/checkout@v4
 
         - name: Set up Python 3.10
-          uses: actions/setup-python@main
+          uses: actions/setup-python@v4
           with:
               python-version: '3.10'
 
